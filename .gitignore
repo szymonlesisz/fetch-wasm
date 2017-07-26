@@ -1,0 +1,17 @@
+# Dependency directory
+node_modules
+src1
+
+# OSX
+.DS_Store
+
+# Editors
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+.yarnclean
