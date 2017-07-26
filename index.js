@@ -55,6 +55,7 @@ module.exports.pitch = function pitch(request) {
 
     const subCache = `subcache ${__dirname} ${request}`;
     compiler.plugin('compilation', (compilation) => {
+        console.log("++++COMPILATION!!!!")
         if (compilation.cache) {
             if (!compilation.cache[subCache]) {
                 compilation.cache[subCache] = {};
@@ -64,6 +65,7 @@ module.exports.pitch = function pitch(request) {
     });
 
     compiler.runAsChild((err, entries, compilation) => {
+        console.log("++++runAsChild!!!!")
         if (err) return callback(err);
         if (entries[0]) {
             const wasmFile = entries[0].files[0];
@@ -73,3 +75,5 @@ module.exports.pitch = function pitch(request) {
         return callback(null, null);
     });
 }
+
+module.exports.raw = true;
